@@ -36,7 +36,7 @@ def gpa():
 	
 	while True:
 		try:
-			n = (int(input("\nEnter number of classes taken: "))) # Determines size of array.
+			n = (int(input("Enter number of classes taken: "))) # Determines size of array.
 			if n == 0: # Can not have an array with 0 objects.
 				raise Exception 
 			course_size = list(range(n))
@@ -85,6 +85,10 @@ def gpa():
 	total_hours = max(list(accumulate(credit_hours))) # See above.
 
 	for course, credit, grade in zip(courses, credit_hours, grade_inputs):
-		print("\nIn %s (%s credit(s)), you received a(n) %s." % (course, credit, user_input[grade]))
+		print("\nIn %s worth %s credit(s), you received a(n) %s." % (course, credit, user_input[grade]))
 		
 	print("\nYour cumulative GPA is: %s" % round((total_points/total_hours), 2))
+
+gpa()
+
+input("Press ENTER to exit.")
