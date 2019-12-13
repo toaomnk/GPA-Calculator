@@ -1,4 +1,4 @@
-from itertools import accumulate
+from itertools import accumulate # Used for accumulating total_points and total_hours
 
 def gpa():
 
@@ -34,9 +34,9 @@ def gpa():
 		"F" : 0,
 	}
 	
-	while True:
+	while True: # While loop allows program to continue running when exception occurs.
 		try:
-			n = (int(input("Enter number of classes taken: "))) # Determines size of array.
+			n = (int(input("\nEnter number of classes taken: "))) # Determines size of array.
 			if n == 0: # Can not have an array with 0 objects.
 				raise Exception 
 			course_size = list(range(n))
@@ -46,31 +46,38 @@ def gpa():
 
 	# The following arrays are empty but will have a course_size n number of objects. 
 
-	courses = [] 
-	credit_hours = []
-	grade_inputs = []
-	scales = []
-	grade_points = []
+	courses = [] # Contains courses which will be listed by the user.
+	credit_hours = [] # Contains the number of credit hours each course is worth listed by user.
+	grade_inputs = [] # Is an integer ranging from 1-13, will be converted into letter grades by dictionary. 
+	scales = [] # Will be created when the program converts the letter grades by scale by dictionary.
+	grade_points = [] # Each value will contain the total amount of grade points each course was worth. 
 
 	for x in course_size:
-		while True:
+		while True: # While loop allows program to continue running when exception occurs.
 			try:
 				course = input("\nEnter Course Name: ")
+
 				if course == "": # Will not allow course name to be blank
 					raise Exception
 				courses.append(course)
+
 				print("\n1: A+, 2: A, 3: A-, 4: B+, 5: B, 6: B-, 7: C+, 8: C, 9: C-, 10: D+, 11: D, 12: D-, 13: F")
 				grade_input = int(input("\nEnter Grade for %s: " % (courses[x])))
+
 				if grade_input > 13: # grade_input cannot be out of range from 1-13.
 					raise Exception
+
 				elif grade_input < 1:
 					raise Exception
+
 				grade_inputs.append(grade_input)
 				credit_hour = int(input("\nEnter the number of credit hours earned for %s: " % (courses[x])))
+
 				if credit_hour == 0: # Course can not be worth 0 credit hours.
 					raise Exception
 				credit_hours.append(credit_hour)
 				break
+				
 			except:
 				print("\nError: Improper Value Entered.")
 				print("\nAll previous information has been cleared.")
@@ -88,7 +95,6 @@ def gpa():
 		print("\nIn %s worth %s credit(s), you received a(n) %s." % (course, credit, user_input[grade]))
 		
 	print("\nYour cumulative GPA is: %s" % round((total_points/total_hours), 2))
-
 gpa()
 
 input("Press ENTER to exit.")
