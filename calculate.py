@@ -36,7 +36,7 @@ def gpa():
 	
 	while True: # While loop allows program to continue running when exception occurs.
 		try:
-			n = (int(input("\nEnter number of classes taken: "))) # Determines size of array.
+			n = int(input("Enter number of classes taken: ")) # Determines size of array.
 			if n == 0: # Can not have an array with 0 objects.
 				raise Exception 
 			course_size = list(range(n))
