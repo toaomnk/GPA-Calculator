@@ -97,4 +97,4 @@ def gpa():
 	print("\nYour cumulative GPA is: %s" % round((total_points/total_hours), 2))
 gpa()
 
-input("Press ENTER to exit.")
+input("\nPress ENTER to exit.")
